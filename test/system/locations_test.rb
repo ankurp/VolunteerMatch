@@ -15,7 +15,7 @@ class LocationsTest < ApplicationSystemTestCase
     click_on "New Location"
 
     fill_in "City", with: @location.city
-    fill_in "Organization id", with: @location.organization_id_id
+    fill_in "Organization id", with: @location.organization_id
     fill_in "State", with: @location.state
     fill_in "Street address", with: @location.street_address
     click_on "Create Location"
@@ -29,7 +29,7 @@ class LocationsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "City", with: @location.city
-    fill_in "Organization id", with: @location.organization_id_id
+    fill_in "Organization id", with: @location.organization_id
     fill_in "State", with: @location.state
     fill_in "Street address", with: @location.street_address
     click_on "Update Location"

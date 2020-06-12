@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  resources :locations
-  resources :organizations
+  resources :locations, only: [:show, :new, :edit, :update]
+  resources :organizations, only: [:show, :new, :edit, :update]
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks" }

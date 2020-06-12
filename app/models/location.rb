@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-  belongs_to :organization_id
+  belongs_to :organization
 end
