@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    puts params['users']['type']
   end
 
   def update
