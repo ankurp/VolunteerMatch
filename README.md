@@ -2,7 +2,7 @@
 
 ## Requirements
 * Install ruby v2.7.0. You can install that directly or using `rvm`
-* Then install bundler using `gem install bundle`
+* Then install bundler using `gem install bundler`
 * Then install foreman using `gem install foreman`
 * Clone this repo and run the commands inside the repo to get started
 
