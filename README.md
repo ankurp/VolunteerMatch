@@ -7,6 +7,7 @@
 * Clone this repo and run the commands inside the repo to get started
 
 ## Steps to run locally
-* Run `bundle` command
-* Run `foreman start -f Procfile.dev`
+* Run `bundle` command to install server side dependencies
+* Run `yarn` to install javascript depenedencies
+* Run `foreman start -f Procfile.dev` to start all processes
 * Go to http://localhost:3000
