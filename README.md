@@ -1,24 +1,12 @@
-# README
+# Get Started
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
+* Install ruby v2.7.0. You can install that directly or using `rvm`
+* Then install bundler using `gem install bundle`
+* Then install foreman using `gem install foreman`
+* Clone this repo and run the commands inside the repo to get started
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Steps to run locally
+* Run `bundle` command
+* Run `foreman start -f Procfile.dev`
+* Go to http://localhost:3000
