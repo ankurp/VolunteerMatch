@@ -22,6 +22,25 @@
       </div>
 
       <div class="form-group">
+        <%= f.text_field :location, autofocus: true, class: 'form-control', placeholder: "Full Name" %>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check-inline">
+          <input class="form-check-input" type="radio" name="user[user_type]" id="volunteer" value="volunteer" checked>
+          <label class="form-check-label" for="volunteer">
+            Volunteer
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <input class="form-check-input" type="radio" name="user[user_type]" id="staff" value="staff">
+          <label class="form-check-label" for="staff">
+            Staff
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
       </div>
     <% end %>
