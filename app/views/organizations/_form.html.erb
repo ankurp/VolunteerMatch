@@ -1,0 +1,49 @@
+<%= form_with(model: organization, local: true) do |form| %>
+  <% if organization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
+
+      <ul>
+      <% organization.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :logo_url %>
+    <%= form.text_field :logo_url, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if organization.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', organization, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if organization.persisted? %>
+      <%= link_to "Cancel", organization, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", organizations_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

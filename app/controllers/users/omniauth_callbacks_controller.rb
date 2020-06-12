@@ -44,6 +44,7 @@ module Users
     end
 
     def set_user
+      byebug
       if user_signed_in?
         @user = current_user
       elsif service.present?

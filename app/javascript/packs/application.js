@@ -20,3 +20,6 @@ $(document).on("turbolinks:load", () => {
 })
 
 import "controllers"
+
+require("trix")
+require("@rails/actiontext")

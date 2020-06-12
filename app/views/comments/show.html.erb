@@ -1,0 +1,18 @@
+<div class="page-header">
+  <%= link_to comments_path, class: 'btn btn-default' do %>
+    All Comments
+  <% end %>
+  <%= link_to edit_comment_path(@comment), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show comment</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Post:</dt>
+  <dd><%= @comment.post %></dd>
+
+  <dt>Text:</dt>
+  <dd><%= @comment.text %></dd>
+
+</dl>
