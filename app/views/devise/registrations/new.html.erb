@@ -1,8 +1,7 @@
 <div class="row">
   <div class="col-lg-4 col-md-6 ml-auto mr-auto">
     <h1 class="text-center">Sign Up</h1>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(@user, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="form-group">
@@ -22,23 +21,48 @@
       </div>
 
       <div class="form-group">
-        <%= f.text_field :location, autofocus: true, class: 'form-control', placeholder: "Full Name" %>
-      </div>
-
-      <div class="form-group">
         <div class="form-check-inline">
-          <input class="form-check-input" type="radio" name="user[user_type]" id="volunteer" value="volunteer" checked>
+          <%= f.radio_button :user_type, :volunteer, data: { reflex: "click->UserReflex#toggle_user_type", value: :volunteer } %>
           <label class="form-check-label" for="volunteer">
             Volunteer
           </label>
         </div>
         <div class="form-check-inline">
-          <input class="form-check-input" type="radio" name="user[user_type]" id="staff" value="staff">
+          <%= f.radio_button :user_type, :staff, data: { reflex: "click->UserReflex#toggle_user_type", value: :staff } %>
           <label class="form-check-label" for="staff">
             Staff
           </label>
         </div>
       </div>
+
+      <div class="form-group">
+        <%= f.fields_for :location, @user.build_location do |location_fields| %>
+          <% if @user.staff? %>
+            <%= location_fields.fields_for :organization_attributes, @user.location.build_organization do |organization_fields| %>
+              <div class="form-group">
+                <%= organization_fields.label :name %>
+                <%= organization_fields.text_field :name, class: 'form-control' %>
+              </div>
+            <% end %>
+          <% end %>
+
+          <div class="form-group">
+            <%= location_fields.label :street_address %>
+            <%= location_fields.text_field :street_address, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= location_fields.label :city %>
+            <%= location_fields.text_field :city, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= location_fields.label :state %>
+            <%= location_fields.text_field :state, class: 'form-control' %>
+          </div>
+        <% end %>
+      </div>
+
 
       <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>

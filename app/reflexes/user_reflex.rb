@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserReflex < ApplicationReflex
-  def increment
-    @count = element.dataset[:count].to_i + element.dataset[:step].to_i
+  def toggle_user_type
+    @user = User.new(user_type: element.dataset[:value])
   end
 end

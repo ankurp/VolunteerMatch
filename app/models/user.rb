@@ -11,4 +11,11 @@ class User < ApplicationRecord
   has_many :services
 
   enum user_type: [ :volunteer, :staff ]
+
+  accepts_nested_attributes_for :location
+
+  def initialize(args)
+    super(args)
+    self.user_type ||= :volunteer
+  end
 end

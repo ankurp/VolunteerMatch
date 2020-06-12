@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_162354) do
     t.string "street_address"
     t.string "city"
     t.string "state"
-    t.bigint "organization_id", null: false
+    t.bigint "organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organization_id"], name: "index_locations_on_organization_id"
