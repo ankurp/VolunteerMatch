@@ -9,5 +9,6 @@
 ## Steps to run locally
 * Run `bundle` command to install server side dependencies
 * Run `yarn` to install javascript depenedencies
+* Run `rails db:create && rails db:migrate`
 * Run `foreman start -f Procfile.dev` to start all processes
 * Go to http://localhost:3000
