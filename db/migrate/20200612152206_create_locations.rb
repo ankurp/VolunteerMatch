@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration[6.0]
       t.string :street_address
       t.string :city
       t.string :state
-      t.references :organization, null: false, foreign_key: true
+      t.references :organization, null: true, foreign_key: true
 
       t.timestamps
     end

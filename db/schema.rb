@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_154405) do
+ActiveRecord::Schema.define(version: 2020_06_12_162354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,7 +139,9 @@ ActiveRecord::Schema.define(version: 2020_06_12_154405) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_type"
+    t.bigint "location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -148,4 +150,5 @@ ActiveRecord::Schema.define(version: 2020_06_12_154405) do
   add_foreign_key "locations", "organizations"
   add_foreign_key "posts", "organizations"
   add_foreign_key "services", "users"
+  add_foreign_key "users", "locations"
 end

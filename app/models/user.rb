@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_person_name
 
+  has_one :location
+  has_one :organization, through: :location
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
 
