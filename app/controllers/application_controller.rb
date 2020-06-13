@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
         :email,
         :password,
         :password_confirmation,
-        :user_type, 
+        :role, 
         location_attributes: [
           :street_address, 
           :city, 
@@ -23,5 +23,9 @@ class ApplicationController < ActionController::Base
         ]
       ])
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    end
+
+    def is_staff!
+      raise ActionController::BadRequest.new('Not Authorized') unless current_user.staff?
     end
 end

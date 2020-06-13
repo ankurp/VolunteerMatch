@@ -1,0 +1,19 @@
+<dl class="dl-horizontal">
+  <dd>
+    Posted By <%= organization.name %>
+    <% if organization.logo_url.present? %>
+      <%= image_url organization.logo_url %>
+    <% end %>
+  </dd>
+
+  <% if organization.phone.present? %>
+    <dt>Phone:</dt>
+    <dd><%= organization.phone %></dd>
+  <% end %>
+
+  <% if organization.email.present? %>
+    <dt>Email:</dt>
+    <dd><%= organization.email %></dd>
+  <% end %>
+
+</dl>

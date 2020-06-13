@@ -10,12 +10,12 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
 
-  enum user_type: [ :volunteer, :staff ]
+  enum role: [:volunteer, :staff]
 
   accepts_nested_attributes_for :location
 
   def initialize(args)
     super(args)
-    self.user_type ||= :volunteer
+    self.role ||= :volunteer
   end
 end

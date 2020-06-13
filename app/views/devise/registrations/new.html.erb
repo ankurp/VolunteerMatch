@@ -22,13 +22,13 @@
 
       <div class="form-group">
         <div class="form-check-inline">
-          <%= f.radio_button :user_type, :volunteer, data: { reflex: "click->UserReflex#toggle_user_type", value: :volunteer } %>
+          <%= f.radio_button :role, :volunteer, data: { reflex: "click->UserReflex#toggle_role", value: :volunteer } %>
           <label class="form-check-label" for="volunteer">
             Volunteer
           </label>
         </div>
         <div class="form-check-inline">
-          <%= f.radio_button :user_type, :staff, data: { reflex: "click->UserReflex#toggle_user_type", value: :staff } %>
+          <%= f.radio_button :role, :staff, data: { reflex: "click->UserReflex#toggle_role", value: :staff } %>
           <label class="form-check-label" for="staff">
             Staff
           </label>
