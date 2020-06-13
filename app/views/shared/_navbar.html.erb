@@ -43,6 +43,8 @@
               <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
               <% if current_user.organizer? %>
                 <%= link_to "Organization Profile", edit_organization_path(current_user.organization.id), class: "dropdown-item" %>
+              <% else %>
+                <%= link_to "Volunteer Profile", edit_user_path(current_user), class: "dropdown-item" %>
               <% end %>
               <div class="dropdown-divider"></div>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

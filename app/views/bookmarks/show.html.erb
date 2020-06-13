@@ -1,0 +1,18 @@
+<div class="page-header">
+  <%= link_to bookmarks_path, class: 'btn btn-default' do %>
+    All Bookmarks
+  <% end %>
+  <%= link_to edit_bookmark_path(@bookmark), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show bookmark</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Post:</dt>
+  <dd><%= @bookmark.post %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @bookmark.user %></dd>
+
+</dl>

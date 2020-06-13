@@ -1,0 +1,10 @@
+<h1>
+  <% if @user.avatar.present? %>
+    <%= image_tag @user.avatar.variant(thumbnail: '100x100^', gravity: 'center', extent: '100x100'), class: 'avatar' %>
+  <% end %>
+  <%= @user.name %>
+  <% if @user.is_same_as?(current_user) %>
+    <%= link_to edit_user_path(@user), class: 'btn btn-primary' do %>Edit Profile<% end %>
+  <% end %>
+</h1>
+<%= @user.bio %>

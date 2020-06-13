@@ -27,6 +27,11 @@
   </div>
 
   <div class="form-group">
+    <% if organization.logo.present? %>
+      <div>
+        <%= image_tag organization.logo.variant(thumbnail: '100x100^', gravity: 'center', extent: '100x100') %>
+      </div>
+    <% end %>
     <%= form.file_field :logo, direct_upload: true %>
   </div>
 
