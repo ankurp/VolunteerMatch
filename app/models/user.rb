@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :location
 
+  delegate :posts, to: :location
+
   def initialize(args)
     super(args)
     self.role ||= :volunteer

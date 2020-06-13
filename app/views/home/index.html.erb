@@ -1,6 +1,7 @@
-<% if current_user.present? %>
-  <h1>Welcome <%= current_user.name %>!</h1>
-<% else %>
-  <h1>Welcome to VolunteerMatch!</h1>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to VolunteerMatch!</h1>
   <p class="lead">A website to offer your help as a volunteer for any organization needing volunteers.</p>
-<% end %>
+  <hr class="my-4">
+  <p>Interested?</p>
+  <a class="btn btn-primary btn-lg" href="/users/sign_up" role="button">Sign Up</a>
+</div>

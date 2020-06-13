@@ -1,0 +1,8 @@
+<h2>Volunteers Needed</h2>
+<div class="container">
+  <div class="card-columns">
+    <% @dashboard.recent_posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </div>
+</div>

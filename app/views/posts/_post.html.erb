@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <% if current_user.organizer? && post.is_created_by?(current_user) %>
+      <%= link_to "Edit", post, class: "btn btn-primary float-right" %>
+    <% else %>
+      <%= link_to "View", post, class: "btn btn-secondary float-right" %>
+    <% end %>
+    <%= post.content %>
+  </div>
+</div>

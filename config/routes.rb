@@ -24,6 +24,11 @@ Rails.application.routes.draw do
   resources :announcements, only: [:index]
   devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks" }
   resources :users, only: [:show, :edit, :update]
-  root to: 'home#index'
+
+  constraints ApplicationHelper::SignedIn.new do
+    root to: "dashboards#show"
+  end
+
+  root to: 'home#index', as: :logged_out_root
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
