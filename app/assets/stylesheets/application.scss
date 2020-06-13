@@ -18,6 +18,37 @@
   }
 }
 
+body {
+  background-color: #FBF7F0;
+}
+
+.trix-container {
+  position: relative;
+  flex-grow: 1;
+  max-width: 45em;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #fff;
+  box-shadow: -0.4rem 0.4rem 2rem rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 0.3rem;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 1em;
+    right: 0;
+    bottom: 0;
+    left: -1em;
+    background-color: #fff;
+    border-top-left-radius: 0.3rem;
+    box-shadow: -0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    &__inner {
+      max-width: 40em;
+      margin: 0 auto;
+    }
+  }
+}
+
 // Masquerade alert shouldn't have a bottom margin
 body > .alert {
   margin-bottom: 0;
