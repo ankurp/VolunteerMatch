@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :is_organizer!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :is_organizer!, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :is_owner, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where(organization_id: current_user.organization.id)
   end
 
   # GET /posts/1

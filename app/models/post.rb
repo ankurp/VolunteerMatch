@@ -4,6 +4,6 @@ class Post < ApplicationRecord
   has_rich_text :content
 
   def is_created_by?(user)
-    user.organization.try(:id) == self.id
+    user.organization.try(:id) == self.organization_id
   end
 end

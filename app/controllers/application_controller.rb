@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
           :city, 
           :state,
           organization_attributes: [
-            :name
+            :name,
+            :logo
           ]
         ]
       ])
