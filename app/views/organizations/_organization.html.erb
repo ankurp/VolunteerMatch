@@ -1,8 +1,10 @@
 <dl class="dl-horizontal">
   <dd>
     Posted By <%= organization.name %>
-    <% if organization.logo_url.present? %>
-      <%= image_url organization.logo_url %>
+    <% if organization.logo.present? %>
+      <div>
+        <%= image_tag organization.logo.variant(resize_to_limit: [100, 100]) %>
+      </div>
     <% end %>
   </dd>
 

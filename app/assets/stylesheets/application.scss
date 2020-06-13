@@ -5,6 +5,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
+@import 'bootstrap/variables';
 @import "jumpstart/sticky-footer";
 @import "jumpstart/announcements";
 @import "actiontext";
@@ -20,4 +21,26 @@
 // Masquerade alert shouldn't have a bottom margin
 body > .alert {
   margin-bottom: 0;
+}
+
+.new_user {
+  .role {
+    display: flex;
+    label {
+      flex: 1;
+      input[type='radio'] {
+        display: none;
+      }
+      &:first-child {
+        margin-right: 10px;
+      }
+      .card {
+        height: 100%;
+      }
+      input[type='radio']:checked + .card {
+        background: $primary;
+        color: white;
+      }
+    }
+  }
 }

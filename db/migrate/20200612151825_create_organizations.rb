@@ -4,7 +4,6 @@ class CreateOrganizations < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :phone
       t.string :email
-      t.string :logo_url
 
       t.timestamps
     end

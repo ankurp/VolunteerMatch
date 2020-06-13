@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_162354) do
     t.string "name"
     t.string "phone"
     t.string "email"
-    t.string "logo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

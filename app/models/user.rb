@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
 
-  enum role: [:volunteer, :staff]
+  enum role: [:volunteer, :organizer]
 
   accepts_nested_attributes_for :location
 

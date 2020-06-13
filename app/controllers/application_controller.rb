@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])
     end
 
-    def is_staff!
-      raise ActionController::BadRequest.new('Not Authorized') unless current_user.staff?
+    def is_organizer!
+      raise ActionController::BadRequest.new('Not Authorized') unless current_user.organizer?
     end
 end
