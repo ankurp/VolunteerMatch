@@ -2,6 +2,6 @@
 
 class UserReflex < ApplicationReflex
   def toggle_role
-    @user = User.new(role: element.dataset[:value])
+    @signup_user = User.new(role: element.dataset[:value])
   end
 end

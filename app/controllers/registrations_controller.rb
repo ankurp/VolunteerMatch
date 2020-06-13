@@ -1,12 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
   def new
-    @user = if @user.present?
-      build_resource(@user.attributes)
-    else
-      build_resource
+    super do |resource|
+      resource.role = @signup_user.role if @signup_user.present?
     end
-    yield resource if block_given?
-    respond_with resource
   end
 
   def create
