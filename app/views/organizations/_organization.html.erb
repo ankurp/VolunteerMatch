@@ -1,18 +1,9 @@
 <div class="media">
-
-  <!-- TODO: Replace temp img -->
-  <%# if organization.logo.present? %>
-  <!--    <div>-->
-  <%#= image_tag organization.logo.variant(thumbnail: '64x64^', gravity: 'center', extent: '64x64') %>
-  <!--    </div>-->
-  <%# end %>
-
-  <img
-    class="mr-3 rounded"
-    src="https://dafi4qalmitzb.cloudfront.net/variants/qtgdfi38x083i6egdljjfcfnuzr4/505f62c0e47a9373c6b61d321c9c280e78025ec5d7c0b70172af89d1b0c0577d"
-    height="84"
-    width="84"
-    />
+  <% if organization.logo.present? %>
+    <div>
+      <%= image_tag organization.logo.variant(thumbnail: '64x64^', gravity: 'center', extent: '64x64'), class: "mr-3 rounded" %>
+    </div>
+  <% end %>
 
   <div class="media-body">
     <h5 class="my-1">
@@ -28,15 +19,3 @@
   </div>
 
 </div>
-
-<!--  Posted By <%#= organization.name %>-->
-<%# if organization.logo.present? %>
-<%# if organization.phone.present? %>
-<!--      <div>Phone:</div>-->
-<!--      <div><%#= organization.phone %></div>-->
-<%# end %>
-
-<%# if organization.email.present? %>
-<!--      <div>Email:</div>-->
-<!--      <div><%#= organization.email %></div>-->
-<%# end %>

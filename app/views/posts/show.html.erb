@@ -13,33 +13,33 @@
 </div>
 
 <div class="card p-3 mb-2">
-<% if current_user.present? %>
-  <%= form_with(model: @new_comment, local: true) do |form| %>
-    <% if @new_comment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  <% if current_user.present? %>
+    <%= form_with(model: @new_comment, local: true) do |form| %>
+      <% if @new_comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-        <ul>
-          <% @new_comment.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+          <ul>
+            <% @new_comment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.hidden_field :post_id %>
+      <%= form.hidden_field :user_id %>
+
+      <div class="form-group">
+        <h4>Post New Comment</h4>
+        <%= form.rich_text_area :text %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit class: 'btn btn-primary' %>
       </div>
     <% end %>
-
-    <%= form.hidden_field :post_id %>
-    <%= form.hidden_field :user_id %>
-
-    <div class="form-group">
-      <h4>Post New Comment</h4>
-      <%= form.rich_text_area :text %>
-    </div>
-
-    <div class="form-group">
-      <%= form.submit class: 'btn btn-primary' %>
-    </div>
   <% end %>
-<% end %>
 </div>
 
 <% @post.comments.each do |comment| %>

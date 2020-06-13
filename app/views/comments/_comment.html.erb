@@ -1,21 +1,13 @@
 <div class="card px-3 py-2 mb-2">
   <div class="media mt-3">
-
-    <!-- TODO: Replace temp img -->
-    <%#= image_tag user.avatar.variant(thumbnail: '100x100^', gravity: 'center', extent: '64x64') %>
-    <img
-      class="align-self-start mr-3 rounded"
-      src="https://dafi4qalmitzb.cloudfront.net/variants/bbj35yg9q9qmclpgeezz7uowxdwr/505f62c0e47a9373c6b61d321c9c280e78025ec5d7c0b70172af89d1b0c0577d"
-      height="64"
-      width="64"
-      />
-
+    <% if comment.user.avatar.present? %>
+      <%= image_tag comment.user.avatar.variant(thumbnail: '100x100^', gravity: 'center'), class: "align-self-start mr-3 avatar" %>
+    <% end %>
     <div class="media-body">
       <h5 class="mt-0">
-        <%= comment.user.name %>
+        <%= link_to comment.user.name, comment.user %>
       </h5>
       <p class="m-0"><%= comment.text.html_safe %></p>
     </div>
-
   </div>
 </div>
