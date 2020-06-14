@@ -3,7 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :bookmarks
   resources :comments
-  resources :posts
+  resources :posts, except: [:index]
   namespace :admin do
     resources :users
     resources :announcements
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+  get '/map-token', to: 'application#map_token'
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end

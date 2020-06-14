@@ -1,11 +1,12 @@
 <div class="card px-3 py-2 mb-2">
   <div class="media mt-3">
-    <%= image_tag gravatar_image_url(current_user.email, size: 40), height: 20, width: 20, class: "rounded" %>
+    <%= image_tag gravatar_image_url(comment.user.email, size: 40), height: 20, width: 20, class: "rounded mt-1 mr-1" %>
     <div class="media-body">
       <h5 class="mt-0">
         <%= link_to comment.user.name, comment.user %>
       </h5>
-      <p class="m-0"><%= comment.text.html_safe %></p>
+      <p class="m-0"><%= comment.text %></p>
+      <small><%= time_ago_in_words(comment.updated_at) %></small>
     </div>
   </div>
 </div>

@@ -15,7 +15,9 @@
     <% if organization.email.present? %>
       <p class="m-0"><%= organization.email %></p>
     <% end %>
-
   </div>
-
 </div>
+<%= organization.address %>
+<% if organization.has_coordinates? %>
+  <div id="map" class="mapkit-map mt-1"></div>
+<% end %>
