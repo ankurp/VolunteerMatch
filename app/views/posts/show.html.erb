@@ -4,8 +4,8 @@
       <div class="card p-3 mb-2">
         <div>
           <% if current_user.present? %>
-            <%= link_to "Like <span class='badge badge-light'>#{@post.like_count}</span>".html_safe, @post,
-              class: "btn #{@post.liked_by_user?(current_user).present? ? 'btn-primary' : 'btn-outline-primary'} float-right",
+            <%= link_to "Like <span class='ml-1 badge badge-light'>#{@post.like_count} ♥️</span>".html_safe, @post,
+              class: "btn #{@post.liked_by_user?(current_user).present? ? 'btn-danger' : 'btn-outline-danger'} float-right",
               data: {
                 reflex: "click->UserReflex#toggle_like",
                 likableType: @post.class.to_s,

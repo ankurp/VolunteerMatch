@@ -4,7 +4,6 @@ class Like < ActiveRecord::Base
   after_create :notify_organizer
 
   def notify_organizer
-    byebug
     Notification.post(to: likable.created_by, from: self.user, action: :like, notifiable: self)
   end
 
