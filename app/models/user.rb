@@ -19,6 +19,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :location
 
   delegate :posts, to: :location
+  delegate :address, to: :location
 
   def initialize(args)
     super(args)

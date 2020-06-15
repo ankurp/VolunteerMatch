@@ -362,6 +362,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3, >= 4.3.1)
   byebug
+  cable_ready (~> 4.2)
   capybara (>= 2.15)
   devise (~> 4.7, >= 4.7.0)
   devise-bootstrapped!

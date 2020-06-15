@@ -73,3 +73,4 @@ gem "stimulus_reflex", "~> 3.2"
 gem "aws-sdk-s3", require: false
 gem 'jwt'
 gem 'geocoder'
+gem "cable_ready", "~> 4.2"

@@ -1,10 +1,25 @@
-<h1>
-  <% if @user.avatar.present? %>
-    <%= image_tag @user.avatar.variant(thumbnail: '100x100^', gravity: 'center', extent: '100x100'), class: 'avatar' %>
-  <% end %>
-  <%= @user.name %>
-  <% if @user.is_same_as?(current_user) %>
-    <%= link_to edit_user_path(@user), class: 'btn btn-primary' do %>Edit Profile<% end %>
-  <% end %>
-</h1>
-<%= @user.bio %>
+<div class="row">
+  <div class="col-lg-10 col-md-10 ml-auto mr-auto">
+    <div class="paper-container">
+      <div class="paper-container__inner">
+        <div class="text-center">
+          <% if @user.avatar.present? %>
+            <%= image_tag @user.avatar.variant(thumbnail: '100x100^', gravity: 'center', extent: '100x100'), class: 'avatar' %>
+          <% end %>
+          <h1>
+            <%= @user.name %>
+          </h1>
+          <h5>
+            <%= @user.address %>
+          </h5>
+          <% if @user.is_same_as?(current_user) %>
+            <%= link_to edit_user_path(@user), class: 'btn btn-primary' do %>Edit Profile<% end %>
+          <% end %>
+        </div>
+        <div>
+          <%= @user.bio %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

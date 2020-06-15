@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :masquerade_user!
+  before_action :set_action_cable_identifier
 
   def map_token
     payload = {
@@ -45,5 +46,11 @@ class ApplicationController < ActionController::Base
 
     def is_organizer!
       raise ActionController::BadRequest.new('Not Authorized') unless current_user.organizer?
+    end
+
+  private
+
+    def set_action_cable_identifier
+      cookies.encrypted[:session_id] = session.id.to_s
     end
 end

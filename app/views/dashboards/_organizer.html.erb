@@ -1,8 +1,6 @@
 <h2>Your Posts</h2>
-<div class="container">
-  <div class="card-columns">
-    <% @dashboard.posts.each do |post| %>
-      <%= render post %>
-    <% end %>
-  </div>
+<div class="card-columns">
+  <% @dashboard.posts.each do |post| %>
+    <%= render post %>
+  <% end %>
 </div>

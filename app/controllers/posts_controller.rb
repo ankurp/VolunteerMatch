@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include CableReady::Broadcaster
+
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :is_organizer!, only: [:index, :new, :create, :edit, :update, :destroy]
@@ -13,6 +15,15 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    if @created_comment.present?
+      cable_ready['comment'].insert_adjacent_html(
+        selector: '.new-comment-placeholder',
+        position: 'afterbegin',
+        html: render_to_string(partial: "comments/comment", locals: { comment: @created_comment })
+      )
+      cable_ready.broadcast
+    end
+  
     @comments = @post.comments.order(created_at: :desc).includes(:user)
     @new_comment = @post.comments.build(user: current_user)
   end

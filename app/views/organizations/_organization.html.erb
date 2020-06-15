@@ -10,14 +10,24 @@
       <%= organization.name %>
     </h5>
     <% if organization.phone.present? %>
-      <p class="m-0"><%= organization.phone %></p>
+      <p class="m-0">
+        <a href="tel:<%= organization.phone %>">
+          <%= organization.phone %>
+        </a>
+      </p>
     <% end %>
     <% if organization.email.present? %>
-      <p class="m-0"><%= organization.email %></p>
+      <p class="m-0">
+        <a href="mailto:<%= organization.email %>">
+          <%= organization.email %>
+        </a>
+      </p>
     <% end %>
   </div>
 </div>
-<%= organization.address %>
-<% if organization.has_coordinates? %>
-  <div id="map" class="mapkit-map mt-1"></div>
-<% end %>
+<div>
+  <%= organization.address %>
+  <% if organization.has_coordinates? %>
+    <div data-reflex-permanent id="map" class="mapkit-map mt-1"></div>
+  <% end %>
+</div>

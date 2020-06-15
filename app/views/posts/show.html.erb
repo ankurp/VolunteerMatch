@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-sm">
       <div class="card p-3 mb-2">
-        <% if @post.is_created_by?(current_user) %>
-          <%= link_to edit_post_path(@post), class: 'btn btn-primary' do %>Edit<% end %>
-        <% end %>
-
         <%= @post.content %>
+
+        <% if @post.is_created_by?(current_user) %>
+          <%= link_to edit_post_path(@post), class: 'btn btn-primary mt-3' do %>Edit<% end %>
+        <% end %>
       </div>
     </div>
     <div class="col-lg-4">
@@ -17,7 +17,7 @@
   </div>
 
   <h4>Comments</h4>
-  <% if current_user.present? %>
+  <% if current_user.present? && current_user.volunteer? %>
     <div class="card p-3 mb-2">
       <%= form_with(model: @new_comment, local: true, data: {
             controller: :comment
@@ -41,14 +41,14 @@
         </div>
 
         <div class="form-group">
-          <%= form.submit 'Comment', data: {
+          <%= form.submit 'Post Comment', data: {
               action: "click->comment#create"
-            }, class: 'btn btn-primary' %>
+            }, class: 'btn btn-outline-primary' %>
         </div>
       <% end %>
     </div>
   <% end %>
-
+  <div class="new-comment-placeholder"></div>
   <% @comments.each do |comment| %>
     <% unless comment.new_record? %>
       <%= render comment %>
