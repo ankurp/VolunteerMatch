@@ -1,11 +1,14 @@
 class Like < ActiveRecord::Base
-    
-    belongs_to :user
-    
-    def self.find_likes_cast_by_user(user)
-        find(:all,
-            :conditions => ["user_id = ? ", user.id],
-            :order => "created_at DESC"
-        )
-    end
+  belongs_to :user
+
+  after_create :notify_organizer
+
+  def notify_organizer
+    byebug
+    Notification.post(to: likable.created_by, from: self.user, action: :like, notifiable: self)
+  end
+
+  def likable
+    @likable ||= likable_type.constantize.find(likable_id)
+  end
 end
