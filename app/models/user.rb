@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  include Hashid::Rails
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
@@ -31,9 +30,5 @@ class User < ApplicationRecord
 
   def is_same_as?(user)
     self.id == user.try(:id)
-  end
-
-  def to_param
-    self.hashid
   end
 end
