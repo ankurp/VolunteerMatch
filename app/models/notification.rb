@@ -11,7 +11,7 @@ class Notification < ApplicationRecord
     notifications = []
 
     Notification.transaction do
-      notifications = recipients.uniq.each do |recipient|
+      notifications = recipients.uniq.map do |recipient|
         Notification.create(
           notifiable: notifiable,
           action:     action,

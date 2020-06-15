@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   include CableReady::Broadcaster
 
-  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :toggle_like]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :toggle_like]
   before_action :is_organizer!, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :is_owner, only: [:edit, :update, :destroy]
 

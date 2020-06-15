@@ -1,9 +1,9 @@
-<div class="card" style="width: 18rem;">
+<div class="card">
   <div class="card-body">
     <% if current_user.organizer? && post.is_created_by?(current_user) %>
-      <%= link_to "Edit", edit_post_path(post), class: "btn btn-light float-right ml-1" %>
+      <%= link_to "Edit".html_safe, edit_post_path(post), class: "btn btn-light float-right ml-1" %>
     <% end %>
-    <%= link_to "View", post_path(post), class: "btn btn-light float-right" %>
+    <%= link_to "View <span class='badge badge-light'>#{post.comments.count}</span>".html_safe, post_path(post), class: "btn btn-light float-right" %>
     <%= post.content %>
   </div>
 </div>

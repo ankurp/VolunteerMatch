@@ -1,0 +1,8 @@
+<%= link_to actor.name, actor %> posted the following <span class="badge badge-primary">comment</span> on your <%= link_to 'post', notifiable.post %>
+<div class="card mt-2">
+  <div class="card-body">
+    <%= notifiable.text %>
+    <br/>
+    <small><%= time_ago_in_words(notifiable.updated_at) %></small>
+  </div>
+</div>

@@ -74,3 +74,4 @@ gem "aws-sdk-s3", require: false
 gem 'jwt'
 gem 'geocoder'
 gem "cable_ready", "~> 4.2"
+gem "hashid-rails", "~> 1.4"

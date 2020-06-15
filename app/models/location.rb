@@ -1,6 +1,6 @@
 class Location < ApplicationRecord
   belongs_to :organization
-
+  has_one :user
   delegate :posts, to: :organization
 
   accepts_nested_attributes_for :organization
@@ -14,6 +14,10 @@ class Location < ApplicationRecord
 
   def address
     [street_address, city, state, 'United States'].compact.join(', ')
+  end
+
+  def short_address
+    [city, state].compact.join(', ')
   end
 
   def has_coordinates?

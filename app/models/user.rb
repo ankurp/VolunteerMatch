@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Hashid::Rails
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
@@ -6,10 +7,11 @@ class User < ApplicationRecord
   has_person_name
 
   belongs_to :location
-  has_one :organization, through: :location
-  has_many :notifications, foreign_key: :recipient_id
-  has_many :services
-  has_many :comment
+  has_one :organization, through: :location, dependent: :destroy
+  has_many :notifications, foreign_key: :recipient_id, dependent: :destroy
+  has_many :services, dependent: :destroy
+  has_many :comment, dependent: :destroy
+  has_many :likes, as: :likable, dependent: :destroy
 
   has_rich_text :bio
   has_one_attached :avatar
@@ -20,6 +22,7 @@ class User < ApplicationRecord
 
   delegate :posts, to: :location
   delegate :address, to: :location
+  delegate :short_address, to: :location
 
   def initialize(args)
     super(args)
@@ -28,5 +31,9 @@ class User < ApplicationRecord
 
   def is_same_as?(user)
     self.id == user.try(:id)
+  end
+
+  def to_param
+    self.hashid
   end
 end

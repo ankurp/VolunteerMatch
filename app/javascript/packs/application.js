@@ -12,7 +12,6 @@ window.Rails = Rails
 
 import 'bootstrap'
 import 'data-confirm-modal'
-
 import "controllers"
 
 require("trix")

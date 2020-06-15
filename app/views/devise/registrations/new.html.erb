@@ -9,7 +9,7 @@
           <%= f.radio_button :role, :volunteer, data: {
             reflex: "click->UserReflex#toggle_role",
             value: :volunteer
-          }, checked: resource.volunteer? %>
+          } %>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">
@@ -23,7 +23,7 @@
           <%= f.radio_button :role, :organizer, data: {
             reflex: "click->UserReflex#toggle_role",
             value: :organizer
-          }, checked: resource.organizer? %>
+          } %>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">

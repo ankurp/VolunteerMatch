@@ -10,8 +10,13 @@
             <%= @user.name %>
           </h1>
           <h5>
-            <%= @user.address %>
+            <%= @user.short_address %>
           </h5>
+          <p class="m-0">
+            <a href="mailto:<%= @user.email %>">
+              <%= @user.email %>
+            </a>
+          </p>
           <% if @user.is_same_as?(current_user) %>
             <%= link_to edit_user_path(@user), class: 'btn btn-primary' do %>Edit Profile<% end %>
           <% end %>

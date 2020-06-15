@@ -2,6 +2,19 @@
   <div class="row">
     <div class="col-sm">
       <div class="card p-3 mb-2">
+        <div>
+          <% if current_user.present? %>
+            <%= link_to "Like <span class='badge badge-light'>#{@post.like_count}</span>".html_safe, @post,
+              class: "btn #{@post.liked_by_user?(current_user).present? ? 'btn-primary' : 'btn-outline-primary'} float-right",
+              data: {
+                reflex: "click->UserReflex#toggle_like",
+                likableType: @post.class.to_s,
+                likableId: @post.id,
+                userId: current_user.id
+              } %>
+            <% end %>
+        </div>
+
         <%= @post.content %>
 
         <% if @post.is_created_by?(current_user) %>
@@ -37,13 +50,15 @@
         <%= form.hidden_field :user_id, data: { target: "comment.userId" } %>
 
         <div class="form-group">
-          <%= form.text_area :text, data: { target: "comment.text" } %>
-        </div>
-
-        <div class="form-group">
-          <%= form.submit 'Post Comment', data: {
-              action: "click->comment#create"
-            }, class: 'btn btn-outline-primary' %>
+          
+          <div class="input-group">
+            <%= form.text_area :text, data: { target: "comment.text" } %>
+            <div class="input-group-append">
+              <%= form.submit 'Post Comment', data: {
+                  action: "click->comment#create"
+                }, class: 'btn btn-outline-primary' %>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
